@@ -23,7 +23,7 @@ def switch(lista,a,b):
 # Otherwise, we have to go backwards, i.e., switch with the parent,
 # then the parent's parent, and so on until reaching the root.
 # Note that by using THIS repair algorithm, traversing
-# the tree from start to end for heapify will be straightforward.
+# the tree from start to end for heapify will be correct.
 
 def reparer(lista,p):
     index = p
