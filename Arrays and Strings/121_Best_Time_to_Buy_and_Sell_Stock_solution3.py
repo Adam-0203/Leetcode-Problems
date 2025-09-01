@@ -1,32 +1,19 @@
-res = 0
-index = len(prices)
-L = len(prices)
-
-
-while index>1:
-    min_index=0
-    for i in range(index):
-        if prices[i]<prices[min_index]:
-            min_index = i
+class Solution(object):
+    def maxProfit(self, prices):
+        res = 0
+        index = len(prices)
+        while index>1:
+            min_index = prices.index(min(prices[:index]))
     
-    if index == len(prices) : 
-        max_prices = 0
-        for i in range(min_index,L):
-            if prices[i]>max_prices:
-                max_prices = prices[i]
-
-        profit = max_prices-prices[min_index]
-    else:
-        max_prices = 0
-        for i in range(min_index,index):
-            if prices[i]>max_prices:
-                max_prices = prices[i]
-
-        profit = max_prices-prices[min_index]
-
-    if profit>res:
-        res = profit
-
-    index = min_index
-
-print(res)
+            if index == len(prices) : 
+                profit = max(prices[min_index:])-prices[min_index]
+            else:
+                profit = max(prices[min_index:index])-prices[min_index]
+    
+            if profit>res:
+                res = profit
+        
+    
+            index = min_index
+    
+        return res
